@@ -27,6 +27,10 @@ def battery_is_ok(temperature, soc, charge_rate):
 def main():
     assert battery_is_ok(25, 70, 0.7) == (True, 'Battery is OK.')
     assert battery_is_ok(50, 85, 0) == (False, 'Temperature is out of range!')
+    assert battery_is_ok(0, 20, 0.8) == (True, 'Battery is OK.')
+    assert battery_is_ok(-1, 50, 0.5) == (False, 'Temperature is out of range!')
+    assert battery_is_ok(30, 81, 0.5) == (False, 'State of Charge is out of range!')
+    assert battery_is_ok(30, 50, 0.9) == (False, 'Charge rate is out of range!')
 
 if __name__ == '__main__':
     main()
