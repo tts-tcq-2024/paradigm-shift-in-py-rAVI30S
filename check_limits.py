@@ -1,9 +1,9 @@
 
 def battery_is_ok(temperature, soc, charge_rate):
-  if temperature < 0 or temperature > 45:
+  if 0 > temperature > 45:
     print('Temperature is out of range!')
     return False
-  if soc < 20 or soc > 80:
+  if 20 > soc > 80:
     print('State of Charge is out of range!')
     return False
   if charge_rate > 0.8:
