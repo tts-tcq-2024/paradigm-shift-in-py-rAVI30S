@@ -1,4 +1,4 @@
-# Constants for battery parameter thresholds
+
 TEMPERATURE_MIN = 0
 TEMPERATURE_MAX = 45
 SOC_MIN = 20
@@ -25,8 +25,10 @@ def battery_is_ok(temperature, soc, charge_rate):
     return True, 'Battery is OK.'
 
 def main():
-    assert(battery_is_ok(25, 70, 0.7) is True)
-    assert(battery_is_ok(50, 85, 0) is False)   
+    assert battery_is_ok(25, 70, 0.7) == (True, 'Battery is OK.')
+    assert battery_is_ok(50, 85, 0) == (False, 'Temperature is out of range!')
 
 if __name__ == '__main__':
     main()
+
+
